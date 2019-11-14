@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      <ion-title text-center>
+       <i>Trocas</i>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-select placeholder="Produtos" [(ngModel)]="produto">
+             <ion-select-option *ngFor="let p of listaMenu" value={{p.titulo}}>
+              {{p.titulo}}
+             </ion-select-option>
+            </ion-select>
+             <!--ion-input placeholder="Produtos:" [(ngModel)]="produto"></ion-input-->
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Peso:" [(ngModel)]="quantidade"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Pontos:" [(ngModel)]="valor">
+          </ion-input>
+          <ion-button (click)="adicionarItem()" color="success"><ion-icon name="remove"></ion-icon></ion-button>
+          <ion-button (click)="removerItem()" color="success"><ion-icon name="add"></ion-icon></ion-button>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+  
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="criarRegistro()" [disabled]="!quantidade ||!valor" color="success">
+          <ion-icon size="small" slot="icon-only" name="swap"></ion-icon>
+          Trocar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
+      <!--ion-card>
+        <ion-img src="assets\imagens\Reciclar.jpg"></ion-img> 
+      </ion-card-->
+  
+  </ion-grid>
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title><ion-img src="assets\imagens\Reciclar.jpg"></ion-img></ion-title>
+    </ion-toolbar>
+  </ion-footer>
+ 

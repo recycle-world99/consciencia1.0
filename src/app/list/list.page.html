@@ -1,0 +1,53 @@
+
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title text-center>
+        <i>Produtos Recicláveis</i>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <div *ngFor="let p of prods">
+        <ion-menu-toggle *ngIf="p.url">
+            <ion-item [routerLink]="p.url" routerDirection="root" routerLinkActive="active">
+               <ion-label>
+                    {{ p.titulo }} 
+               </ion-label>
+            </ion-item>  
+        </ion-menu-toggle>  
+  
+        <ion-item button *ngIf="p.subProds?.length > 0" (click)="p.open = !p.open" [class.parent-active]="p.open" detail="false">
+            <ion-icon slot="start" name="ios-arrow-dropright-circle" *ngIf="!p.open"></ion-icon>
+            <ion-icon slot="start" name="ios-arrow-dropdown-circle" *ngIf="p.open"></ion-icon>
+            <ion-label>{{ p.titulo }}</ion-label>
+          </ion-item>  
+          
+          <ion-list *ngIf="p.open">
+              <ion-menu-toggle>
+                <ion-item *ngFor="let sub of p.subProds" class="sub-item" [routerLink]="sub.url" routerDirection="root"
+                  routerLinkActive="active">
+                  <ion-img class="menu" src="{{'assets/imagens/'+sub.url}}"></ion-img>
+                  <ion-label>
+                    {{ sub.titulo }} - {{sub.valor}} 
+                  </ion-label>
+                </ion-item>
+              </ion-menu-toggle>
+            </ion-list>  
+    </div>
+    <!--ion-card>
+      <ion-img src="assets\imagens\Avisos.jpg"></ion-img>
+    </ion-card-->
+
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-title><ion-img src="assets\imagens\Avisos.jpg"></ion-img></ion-title>
+    </ion-toolbar>
+  </ion-footer>
+  

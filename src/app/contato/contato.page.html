@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title text-center>
+     <i>Dados Pessoais</i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid text-center>
+      <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-input placeholder="Nome:" type="text" [(ngModel)]="nome" ></ion-input>
+            </ion-item>
+          </ion-col>
+      </ion-row>
+
+  <!--primeira linha do aplicativo--> 
+    <ion-row>
+      <ion-col>
+        <ion-item>
+        <ion-datetime text-center displayFormat="DD MM YYYY" placeholder="Data de Nascimento" [(ngModel)]="data"></ion-datetime>  
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-input placeholder="Endereco:" [(ngModel)]="endereco" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  <!--segunda linha do aplicativo-->
+    <ion-row> 
+      <ion-col>
+        <ion-item>
+         <ion-input placeholder="E-mail:" [(ngModel)]="email" type="email"></ion-input> 
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  <!--terceira linha do aplicativo-->
+    <ion-row>
+      <ion-col>
+        <ion-item>
+         <ion-input placeholder="Senha:" [(ngModel)]="senha" type="password"></ion-input>
+         <!--ion-input placeholder="Confirme" [(ngModel)]="confirme" type="password"></ion-input-->
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+        <ion-button (click)="criarRegistro()" [disabled]="!nome || !email || !senha  " color="success">
+        <ion-icon size="small" slot="icon-only" name="add"></ion-icon>
+          Salvar
+      </ion-button>
+      <!--ion-button (click)="criarRegistro()" [disabled]="!nome || !email || !senha || !confirme">
+          <ion-icon size="small" slot="icon-only" name="refresh"></ion-icon>
+          Atualizar
+        </ion-button-->
+        </ion-col>
+     </ion-row>
+      <!--ion-card>
+         <ion-img src="assets\imagens\Reciclar.jpg"></ion-img> 
+       </ion-card-->
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><ion-img src="assets\imagens\Reciclar.jpg"></ion-img></ion-title>
+  </ion-toolbar>
+</ion-footer>

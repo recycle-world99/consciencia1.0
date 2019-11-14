@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title text-center>
+         <i>Pesquisa de Opinião</i>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-item>  
+      <ion-row>
+        <ion-col>
+          <h1>Olá, caro usuário.</h1>
+          <p>Obrigado por usar o <ion-text color="primary"><b><u>Consciência Reciclável</u></b></ion-text>.</p>
+          <p>Queremos lhe fazer uma pergunta de 30 segundos, como foi a sua experiência com a nosso aplicativo.</p>
+          <p>Em uma escala de <ion-text color="danger">0</ion-text> à <ion-text color="success">10</ion-text>, o quanto vocês recomendaria o aplicativo <ion-text color="primary"><b>Consciência Reciclável</b></ion-text> a um amigo ou familiar?</p>
+        </ion-col>    
+      </ion-row>
+
+    <ion-title>
+       <ion-img src="assets\imagens\Sair.jpg"></ion-img>  
+    </ion-title>
+    </ion-item>
+    <ion-grid text-center>
+    <ion-row>   
+    <ion-col>
+    <ion-button color="danger" (click)="showConfirm(0)">0</ion-button>
+    <ion-button color="danger" (click)="showConfirm(1)">1</ion-button>
+    <ion-button color="danger" (click)="showConfirm(2)">2</ion-button>
+    <ion-button color="danger" (click)="showConfirm(3)">3</ion-button>
+    <ion-button color="warning" (click)="showConfirm(4)">4</ion-button>
+    <ion-button color="warning" (click)="showConfirm(5)">5</ion-button>
+    <ion-button color="warning" (click)="showConfirm(6)">6</ion-button>
+    <ion-button color="success" (click)="showConfirm(7)">7</ion-button>
+    <ion-button color="success" (click)="showConfirm(8)">8</ion-button>
+    <ion-button color="success" (click)="showConfirm(9)">9</ion-button>
+    <ion-button color="success" (click)="showConfirm(10)">10</ion-button>
+    </ion-col>
+    </ion-row>
+    </ion-grid>
+
+    <!--ion-tabs>
+
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="logo-facebook">
+            <ion-icon name="logo-facebook"></ion-icon>
+            <ion-label>Facebook</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="map">
+            <ion-icon name="map"></ion-icon>
+            <ion-label>Map</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="about">
+            <ion-icon name="information-circle"></ion-icon>
+            <ion-label>About</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      
+      </ion-tabs-->
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><ion-img src="assets\imagens\Reciclar.jpg"></ion-img></ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title text-center>
+       <i>QR Code</i>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>  
+ 
+    <ion-card *ngIf="encodeData">
+        <span> 
+          <img src='https://chart.googleapis.com/chart?cht=qr&chl={{encodeData}}&chs=230x180&choe=UTF-8&chld=L|2' alt='qr code'><a href='https://br.qr-code-generator.com/' border='0' style='cursor:default' rel='nofollow'></a>
+        </span>
+     </ion-card> 
+     
+   
+     <!--ion-card *ngIf="scanCode">
+        <span>
+       <p>Result from Scan: {{scannedData}}</p>
+        </span>
+     </ion-card-->
+     
+<ion-grid text-center>
+  <ion-row>
+  <ion-col>
+     <ion-item> 
+     <ion-input type="text" placeholder="Digite o Códido aqui!" [(ngModel)]="encodText"></ion-input>   
+     </ion-item>
+  </ion-col>
+  </ion-row>
+
+  <ion-row>
+     <ion-col text-center>
+       <ion-button color="success" (click)="createCode()" [disabled]="!encodText"><ion-icon name="barcode"></ion-icon>
+       Gerar cupom de desconto
+       </ion-button>
+       </ion-col>
+     </ion-row>
+  </ion-grid>  
+
+  <!--ion-tabs>
+
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="logo-facebook">
+          <ion-icon name="logo-facebook"></ion-icon>
+          <ion-label>Facebook</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="map">
+          <ion-icon name="map"></ion-icon>
+          <ion-label>Map</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="about">
+          <ion-icon name="information-circle"></ion-icon>
+          <ion-label>About</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    
+    </ion-tabs-->
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title><ion-img src="assets\imagens\Reciclar.jpg"></ion-img></ion-title>
+  </ion-toolbar>
+</ion-footer>
