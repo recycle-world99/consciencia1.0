@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="Home ion-text-center">
+     <i>Consciência Reciclável</i> 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class= "background" Padding>
+  <!--ion-slide><ion-img src="assets\imagens\logoreciclagem.jpg"></ion-img></ion-slide-->
+  
+  <form class="form" class="box" [formGroup]="validations_form"  (ngSubmit)="cadastro(validations_form.value)">
+
+      <ion-item>
+              
+           <ion-grid fixed>
+              
+               <ion-row>
+                 <ion-col>
+                    
+            </ion-col>
+                  <ion-col col-6>
+                      
+                  </ion-col>
+                  <ion-col>  
+                      <h1>Cadastro</h1>
+                      <input type="text" [ngModel]="email" name="email" formControlName="email" placeholder="E-mail">
+                      <div class="validation-errors">
+                          <ng-container *ngFor="let validation of validation_messages.email">
+                            <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+                              {{ validation.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+                      <input type="password" name="" formControlName="password"placeholder="password">
+                      <div class="validation-errors">
+                          <ng-container *ngFor="let validation of validation_messages.password">
+                            <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+                              {{ validation.message }}
+                            </div>
+                          </ng-container>
+                        </div>
+                      <!--input type="submit" name="" value="login"-->
+                      <div class="semborda">
+                        <ion-button color="success" type="submit" >
+                              Cadastrar
+                        </ion-button>
+                        </div>
+
+                      <!--ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Register</ion-button-->
+                      <label class="error-message">{{errorMessage}}</label>
+                      <label class="success-message">{{successMessage}}</label>
+                    </ion-col>
+                </ion-row>
+              
+              </ion-grid>
+
+      </ion-item>
+    </form>
+ </ion-content>   
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="logo-facebook" href="#" onclick="window.open('https://www.facebook.com/Consci%C3%AAncia-Recicl%C3%A1vel-112645676855530/?modal=admin_todo_tour'); return false;">
+      <ion-icon name="logo-facebook"></ion-icon>
+      <ion-label>Facebook</ion-label>
+    </ion-tab-button>
+
+
+
+    <ion-tab-button tab="about">
+      <ion-icon name="information-circle" href="#" onclick= "window.open('https://sites.google.com/view/conscinciareciclvel'); return false;"></ion-icon>
+      <ion-label>Sobre</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>
+
+ 
+
+
+
+
+

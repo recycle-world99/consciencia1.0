@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import {NavController} from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
 import { ServicesService } from '../services.service';
+import {AuthenticateService} from '../services/authentication.service';
 
 @Component({
   selector: 'app-sair',
@@ -12,7 +13,7 @@ export class SairPage {
 
   nota: number; 
 
-  constructor(public alertCtrl: AlertController, public service:ServicesService, public NavCtlr:NavController ) {}
+  constructor(public alertCtrl: AlertController, public service:ServicesService, public NavCtlr:NavController,  private authService: AuthenticateService ) {}
     
        
 
@@ -42,6 +43,8 @@ export class SairPage {
       text:'sim',
       handler: () => {
         console.log ('Agree clicked');
+
+        this.authService.logoutUser()
     
         this.NavCtlr.navigateForward ('/login');
     

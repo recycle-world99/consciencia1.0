@@ -1,0 +1,96 @@
+ion-content.background{
+  /*--ion-backgrond-color:#f4f5f8;*/
+  --background: transparent url('../../assets/imagens/Home.jpg') no-repeat center/cover fixed;
+  ion-col div {
+  background-color: #f5f6f9;
+  border: 1px solid rgb(3, 32, 6);
+  border-radius: 2px;
+  padding: 5px;
+  text-align: center;
+ 
+  
+}
+}
+  /*.box{
+    width: 150%;
+    padding: 40px; // tamanho da imagem 
+    animation: relative;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  text-align: center; // centralizar o texto
+  }*/
+  // texto do login na pagina
+  .box h1 {
+    /*color: #a5b4e4      0; */// cor da letra 
+    text-transform: uppercase; // letra maiúscula
+    font-weight: 800;  // tamanho da fonte
+    text-align: center;
+  }
+  .box input[ type = "text"],.box input[type = "password"]{
+    border: 0;
+    background: email;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid rgb(216, 11, 11); // borda do usernome,passoword
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: rgb(0, 0, 0); //cor da letra do usernome
+    border-radius: 24px;
+    transition: 0.25s;
+    
+   }
+
+  .box input[type ="text"]:focus,.box input[type ="password"]:focus{
+    /*width: 220px;*/
+    border-color: rgb(28, 25, 212); // borda do user nome
+  }
+    // Botão login
+  .box input[type= "submit"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #0c702a;  // Borda de fora do login 
+    padding: 14px 40px;
+    outline: none;
+    color: rgb(4, 34, 99); //Cor da letra
+    border-radius: 24px;
+    transition: 0,25;
+    cursor: pointer;
+  }
+// Parte de dentro do botão 
+  .box input[type ="submit"]:hover{
+    background: rgb(7, 231, 74);
+  }
+  //entrar ou login
+  ion-item{
+    position: absolute;
+    margin: -8%;
+    left:15%;
+    right: center;
+    top:20%;  
+    animation: block; 
+    --background: rgba(0,0,0,0)!important;
+    --border-color: rgba(0,0,0,0)!important;
+     
+   //--ion-item: transparent !important;
+    
+  }
+  //box com os campos 
+  /*ion-slide{
+    left: center;
+    right: center;
+    top: -20%;
+    position: block;
+    height: 100%;
+    width: 100%;
+  }*/
+  
+
+  .semborda{
+    border: none !important;
+  }

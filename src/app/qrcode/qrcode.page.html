@@ -25,18 +25,19 @@
      </ion-card-->
      
 <ion-grid text-center>
-  <ion-row>
+  <!--ion-row>
   <ion-col>
      <ion-item> 
      <ion-input type="text" placeholder="Digite o Códido aqui!" [(ngModel)]="encodText"></ion-input>   
      </ion-item>
   </ion-col>
-  </ion-row>
+  </ion-row-->
 
   <ion-row>
      <ion-col text-center>
-       <ion-button color="success" (click)="createCode()" [disabled]="!encodText"><ion-icon name="barcode"></ion-icon>
-       Gerar cupom de desconto
+        <div>{{encodeData}}</div>
+       <ion-button color="success" (click)="createCode(1)"><ion-icon name="barcode"></ion-icon>
+       {{i}} Gerar cupom de desconto
        </ion-button>
        </ion-col>
      </ion-row>

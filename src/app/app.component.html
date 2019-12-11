@@ -1,29 +1,38 @@
 <ion-app>
-  <ion-split-pane>
-    <ion-menu class="green" type="overlay">
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>
-            <ion-chip>
-            <ion-icon name="leaf"></ion-icon>
-            <ion-label>Conciência Reciclável</ion-label>
-          </ion-chip>
-          </ion-title>
-        </ion-toolbar>
-      </ion-header>
+  <div *ngIf="paginaPrincipal.length == 0">
+      <ion-split-pane>
+          <ion-menu class="green" type="overlay" >
+            <ion-header>
+              <ion-toolbar>
+                <ion-title>
+                  <ion-chip>
+                  <ion-icon name="leaf"></ion-icon>
+                  <ion-label>Conciência Reciclável</ion-label>
+                </ion-chip>
+                </ion-title>
+              </ion-toolbar>
+            </ion-header>
+            <ion-content>
+              <ion-list>
+                <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+                  <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" [disabled]="p.title=='login'">
+                    <ion-icon slot="start" [name]="p.icon"></ion-icon>
+                    <ion-label>
+                      {{p.title}}
+                    </ion-label>
+                  </ion-item>
+                </ion-menu-toggle>
+              </ion-list>
+            </ion-content>
+          </ion-menu>
+          <ion-router-outlet main></ion-router-outlet>
+        </ion-split-pane>
+  </div>
+
+  <div *ngIf="paginaPrincipal.length == 1"> 
       <ion-content>
-        <ion-list>
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon slot="start" [name]="p.icon"></ion-icon>
-              <ion-label>
-                {{p.title}}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-        </ion-list>
       </ion-content>
-    </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
-  </ion-split-pane>
+     <ion-router-outlet main></ion-router-outlet>
+ </div>
+
 </ion-app>

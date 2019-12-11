@@ -2,6 +2,12 @@ import {Component} from '@angular/core';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 import {HttpClient} from '@angular/common/http';
 import { ServicesService} from '../services.service';
+import {ListPage} from '../list/list.page';
+import {ComprasPage} from '../compras/compras.page';
+import { Router } from '@angular/router';
+import { NavigationExtras, ActivatedRoute } from '@angular/router';
+import { AlertController, NavController, NavParams } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-qrcode',
@@ -20,18 +26,23 @@ export class QRCodePage {
   encodText: string = '';
   encodeData: any={};
   datadacompra: string='';  
- 
+  itemcomprado: number = 0;
+  btn: any;
+  controle = 0;
 
-  constructor(private Scanner: BarcodeScanner, public http:HttpClient, public crudService:ServicesService) {
+  constructor(private Scanner: BarcodeScanner, public http:HttpClient, public crudService:ServicesService, public compras:ComprasPage,
+    public router: Router,
+    public rota: ActivatedRoute) {
  
   }
 
-  
-  createCode(){
-    
-    
+  ngOnInit(){
+  this.itemcomprado = parseInt(this.rota.snapshot.paramMap.get("quanta"));   
+  console.log (this.itemcomprado)
+  }
 
-    /*this.encodeData = this.encodText;*/
+  createCode(n){
+    
     
     {
       this.crudService.read_novacompra('').subscribe(data => {
@@ -46,21 +57,36 @@ export class QRCodePage {
             datadacompra: e.payload.doc.data()['datadacompra']
           };
         })
-       /* this.encodeData=[];*/
-        this.encodeData = [
-          this.qrData[0].id, 
-          this.qrData[0].produto,
-          this.qrData[0].quantidade,
-          this.qrData[0].valor,
-          this.qrData[0].datadacompra],
-        console.log(this.encodeData[0]);
+
+        this.btn = (n-1) + this.controle;
+
+          this.controle = this.controle + 1;
+
+          if (this.btn<=this.itemcomprado){
+            
+            this.encodeData = [
+            this.qrData[this.btn].id, 
+            this.qrData[this.btn].produto,
+            this.qrData[this.btn].quantidade,
+            this.qrData[this.btn].valor,
+            this.qrData[this.btn].datadacompra],
+ 
+          console.log(this.controle);
+          console.log(n);
+          console.log(this.btn);
+          }
+          else {
+          console.log ("Não existem mais item comprados")
+
+          }
+
+      console.log(this.encodeData[0]);
+          
        
       });
 
     }
   
-  }
-   
-
+  }  
   
 }
